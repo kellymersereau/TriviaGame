@@ -1,10 +1,5 @@
 //Global Variables
-var questions = ['Question One', 'Question 2', 'Question 3', 'Question 4', 'Question 5', 'Question 6'];
-var answersOne = ['answer 1', 'answer 2', 'answer 3', 'answer 4', 'answer 5', 'answer 6'];
-var answersTwo = ['answer 1', 'answer 2', 'answer 3', 'answer 4', 'answer 5', 'answer 6'];
-var answersThree = ['answer 1', 'answer 2', 'answer 3', 'answer 4', 'answer 5', 'answer 6'];
-var answersFour = ['answer 1', 'answer 2', 'answer 3', 'answer 4', 'answer 5', 'answer 6'];
-var correctAnswers = ['correct1', 'correct2', 'correct3', 'correct4', 'correct5', 'correct6'];
+var questions = ["Finish the lyric from Rocky Horror Picture Show: 'I'm just a sweet _______, from Transexual, Transylvania'", "What is Tyler Durdan's home business called?", "What day of the week do the Plastics wear pink in Mean Girls?", "What does Vincent do when Mia overdoses in Pulp Fiction?", "What do The Warriors call the leader of their gang?", "What's the name of the convenience store where Dante works in Clerks?"];
 
 //game counters
 var counter = 0;
@@ -12,44 +7,137 @@ var correctCounter = 0;
 var wrongCounter = 0;
 
 //creates questions objects
-var createQuestions = 
+var questionOne = 
 {
-	questionOne: function()
+	question: "Finish the lyric from Rocky Horror Picture Show: 'I'm just a sweet _______, from Transexual, Transylvania'",
+	correctAnswer: "transvestite",
+	choiceOne: "alien",
+	choiceTwo: "little lady",
+	choiceThree: "potato",
+	createQuestion: function()
 	{
-		questions[0];
-		$('#question').append(questions[0]);
 		timer.run();
+		$('#question').append(questionOne.question);
+		$('#answerOne').append(questionOne.choiceThree);
+		$('#answerTwo').append(questionOne.choiceTwo);
+		$('#answerThree').append(questionOne.choiceOne);
+		$('#answerFour').append(questionOne.correctAnswer);
 	},
-	questionTwo: function()
+	image: '<img src="#">',
+	correctAnswerClick:  $('#answerFour').click(function()
 	{
-		questions[1];
-		$('#question').append(questions[1]);
-		timer.run();
-	},
-	questionThree: function()
+		$('#question').hide();
+ 		$('#answerOne').hide();
+ 		$('#answerTwo').hide();
+ 		$('#answerThree').hide();
+ 		$('#answerFour').hide();
+ 		timer.stop();
+		correctCounter+1;
+		counter+1;
+ 		console.log(correctCounter);
+ 		$('.rightWrong').append("Correct!");
+ 		$('.correctAnswerIs').append("I'm just a sweet TRANSVESTITE from Transexual, Transylvania!");
+ 		$('.images').append(questionOne.image);
+
+	}),
+	otherAnswerClick:  $('#answerOne' || '#answerTwo' || '#answerThree').click(function()
 	{
-		questions[2];
-		$('#question').append(questions[2]);
-		timer.run();
-	},
-	questionFour: function()
+		$('#question').hide();
+ 		$('#answerOne','#answerTwo','#answerThree', '#answerFour').hide();
+ 		timer.stop();
+		wrongCounter+1;
+		counter+1;
+ 		console.log(wrongCounter);
+ 		$('.rightWrong').append("Wrong!");
+ 		$('.correctAnswerIs').append("The correct answer is: 'I'm just a sweet TRANSVESTITE from Transexual, Transylvania!'");
+ 		$('.images').append(questionOne.image);
+
+	}),
+};
+var questionTwo = 
+{
+	question: "What is Tyler Durdan's home business called?",
+	correctAnswer: "Paper Street Soap Company",
+	choiceOne: "Soap Street Paper Company",
+	choiceTwo: "There is no name",
+	choiceThree: "Just Another Soap Company",
+	createQuestion: function()
 	{
-		questions[3];
-		$('#question').append(questions[3]);
 		timer.run();
-	},
-	questionFive: function()
+		$('#question').append(questionTwo.question);
+		$('#answerOne').append(questionTwo.choiceThree);
+		$('#answerTwo').append(questionTwo.choiceTwo);
+		$('#answerThree').append(questionTwo.choiceOne);
+		$('#answerFour').append(questionTwo.correctAnswer);
+	}
+};
+var questionThree = 
+{
+	question: "What day of the week do the Plastics wear pink in Mean Girls?",
+	correctAnswer: "Wednesday",
+	choiceOne: "Friday",
+	choiceTwo: "Tuesday",
+	choiceThree: "They never wear pink",
+	createQuestion: function()
 	{
-		questions[4];
-		$('#question').append(questions[4]);
 		timer.run();
-	},
-	questionSix: function()
+		$('#question').append(questionThree.question);
+		$('#answerOne').append(questionThree.choiceThree);
+		$('#answerTwo').append(questionThree.choiceTwo);
+		$('#answerThree').append(questionThree.choiceOne);
+		$('#answerFour').append(questionThree.correctAnswer);
+	}
+};
+var questionFour = 
+{
+	question: "What does Vincent do when Mia overdoses in Pulp Fiction?",
+	correctAnswer: "Stabs her in the heart with a shot of Adrenaline",
+	choiceOne: "Throws her in the shower",
+	choiceTwo: "Slaps her a few times",
+	choiceThree: "Yells 'NOPE' and walks away",
+	createQuestion: function()
 	{
-		questions[5];
-		$('#question').append(questions[5]);
 		timer.run();
-	},
+		$('#question').append(questionFour.question);
+		$('#answerOne').append(questionFour.choiceThree);
+		$('#answerTwo').append(questionFour.choiceTwo);
+		$('#answerThree').append(questionFour.choiceOne);
+		$('#answerFour').append(questionFour.correctAnswer);
+	}
+};
+var questionFive = 
+{
+	question: "What do The Warriors call the leader of their gang?",
+	correctAnswer: "War Chief",
+	choiceOne: "King of War",
+	choiceTwo: "Mr. President Sir",
+	choiceThree: "Silly Fool",
+	createQuestion: function()
+	{
+		timer.run();
+		$('#question').append(questionFive.question);
+		$('#answerOne').append(questionFive.choiceThree);
+		$('#answerTwo').append(questionFive.choiceTwo);
+		$('#answerThree').append(questionFive.choiceOne);
+		$('#answerFour').append(questionFive.correctAnswer);
+	}
+};
+var questionSix = 
+{
+	question: "What's the name of the convenience store where Dante works in Clerks?",
+	correctAnswer: "Quick Stop",
+	choiceOne: "Quick Chek",
+	choiceTwo: "The Store",
+	choiceThree: "Quik-E-Mart",
+	createQuestion: function()
+	{
+		timer.run();
+		$('#question').append(questionSix.question);
+		$('#answerOne').append(questionSix.choiceThree);
+		$('#answerTwo').append(questionSix.choiceTwo);
+		$('#answerThree').append(questionSix.choiceOne);
+		$('#answerFour').append(questionSix.correctAnswer);
+	}
 };
 //creates timer object
 var timer =
@@ -74,100 +162,12 @@ var timer =
       clearInterval(counter);
 	}
 };
-//creates answers object
-var answers =
-{
-	answerOne: function() 
-	{
-		answersOne[0];
-		$('#answerOne').append(answersOne[0]);
-		answersOne[1];
-		$('#answerTwo').append(answersOne[1]);
-		answersOne[2];
-		$('#answerThree').append(answersOne[2]);
-		answersOne[3];
-		$('#answerFour').append(answersOne[3]);
 
-	},
-	answerTwo: function() 
-	{
-		answersTwo[0];
-		$('#answerOne').append(answersTwo[0]);
-		answersTwo[1];
-		$('#answerTwo').append(answersTwo[1]);
-		answersTwo[2];
-		$('#answerThree').append(answersTwo[2]);
-		answersTwo[3];
-		$('#answerFour').append(answersTwo[3]);
-
-	},
-	answerThree: function() 
-	{
-		answersThree[0];
-		$('#answerOne').append(answersThree[0]);
-		answersThree[1];
-		$('#answerTwo').append(answersThree[1]);
-		answersThree[2];
-		$('#answerThree').append(answersThree[2]);
-		answersThree[3];
-		$('#answerFour').append(answersThree[3]);
-
-	},
-	answerFour: function() 
-	{
-		answersFour[0];
-		$('#answerOne').append(answersFour[0]);
-		answersFour[1];
-		$('#answerTwo').append(answersFour[1]);
-		answersFour[2];
-		$('#answerThree').append(answersFour[2]);
-		answersFour[3];
-		$('#answerFour').append(answersFour[3]);
-
-	},
-}
-
-//creates answer screen
-// var answerScreen =
-// {
-// 	rightWrong: function()
-// 	{
-// 		// for (var i=0; i<6; i++){
-// 		// 	if ($('.answerButton').html() == correctAnswers[i]) {
-// 		// 		$('#rightWrong').text("Correct!")
-// 		// 	} else {
-// 		// 		$('#rightWrong').text("Wrong!")
-// 		// 		$('#correctAnswerIs').text("The correct answer is " + correctAnswers[i]);
-// 	// 		}
-// 	// 	}
-// 	// }
-// }
 //start game function
  $("#startGame").click(function()
  {
     $("#startGame").hide();
-    createQuestions.questionOne();
-	answers.answerOne();
+    questionOne.createQuestion();
  });
 
- //answer button function
- $(".answerButton").click(function()
- {
- 	counter+1;
- 	console.log(counter);
-	console.log($(this).html());
-	for (var i=0; i<6; i++){
-		if ($('.answerButton').html() == correctAnswers[i]) 
-		{
-			$('#rightWrong').append("Correct!")
-		} else 
-		{
-			$('#rightWrong').append("Wrong!")
-			$('#correctAnswerIs').append("The correct answer is " + correctAnswers[i]);
-		}
-	}
- 	$('.answerButton').hide();
- 	$('#question').hide();
- 	timer.stop();
- 	// answerScreen.rightWrong();
- })
+
