@@ -204,4 +204,3 @@ function finalPage() {
 	restartButton.createButton();
 
 };
-

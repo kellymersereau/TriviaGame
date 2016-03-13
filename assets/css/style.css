@@ -1,0 +1,51 @@
+*{
+	text-align: center;
+	max-height: 100%;
+	max-width: 100%;
+	font-family: 'Lato', sans-serif ;
+}
+body {
+	background-color: #000000;
+}
+.jumbotron {
+	background-image: url("../images/stardust.png");
+	color: white;
+	font-family: 'Lato', sans-serif ;
+	border-style: solid 1px;
+	border-color: white;
+}
+#startGame {
+	font-size: 30px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+}
+#startGame:hover {
+	font-size: 31px;
+	background-color: #996699;
+	color: #ffffff;
+	opacity: initial; 
+}
+#question
+#timer {
+	font-size: 16px;
+	color: red;
+	font-variant-caps: small-caps;
+}
+.answerButton
+#answerPage
+.rightWrong
+.correctAnswerIs
+.images {
+	border-style: double;
+	border-color: red;
+
+}
+.continueButton
+#finalPage
+.endTitle
+#endSubText
+#rightQuestions
+#wrongQuestions
+#startOver
+
+
